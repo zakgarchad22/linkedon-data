@@ -19,11 +19,11 @@ const Person = mongoose.model('Person', new mongoose.Schema({
         }
     ],
     salary: Number
-}, { collection: "linkedon" }))
+}, { collection: "linkedon" }, {multi: true}))
 
 const onInsert = function (err, docs) {
     if (err) { console.log(err) }
     else { console.info('Done'); mongoose.disconnect() }
 }
 
-Person.collection.insert(data, onInsert)
+Person.collection.insertMany(data, onInsert)
