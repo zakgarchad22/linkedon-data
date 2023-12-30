@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const fs = require("fs")
 const data = JSON.parse(fs.readFileSync("people.json"))
 
-mongoose.connect('mongodb://localhost/test-db', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/test-db', { useNewUrlParser: true  , useUnifiedTopology: true })
 
 const Person = mongoose.model('Person', new mongoose.Schema({
     firstName: String,
